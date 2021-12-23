@@ -62,19 +62,7 @@ export default new Vuex.Store({
   setMyShop(state, value) {
     state.myShop = value
   },
-  //edit profil
-  editProfil( {dispatch}, state, value) {
-    axios.put('https://api-moshop.molengeek.pro/api/v1/user', value, {
-      headers: {
-      Authorization: "Bearer " + state.token
-      }
-  }).then((response) => {
-    console.log(response);
-    dispatch('getUser')
-      // commit('setUser', response.data);
-      // console.log(state.user)
-  })   
-}
+
   }, 
   
   actions: {
@@ -102,6 +90,19 @@ export default new Vuex.Store({
           // console.log(state.user)
       }) 
       },
+        //edit profil
+  editProfil( {dispatch, state}, value) {
+    axios.put('https://api-moshop.molengeek.pro/api/v1/user', value, {
+      headers: {
+      Authorization: "Bearer " + state.token
+      }
+  }).then((response) => {
+    console.log(response);
+    dispatch('getUser')
+      // commit('setUser', response.data);
+      // console.log(state.user)
+  })   
+}
 
   },
   modules: {

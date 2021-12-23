@@ -41,8 +41,8 @@ export default {
     },
     methods: {
         submit(form) {
-            this.$store.commit('editProfil', form)
-            // this.$router.push('/profil')
+            this.$store.dispatch('editProfil', form)
+            this.$router.push('/profil')    
         },
 
     }
