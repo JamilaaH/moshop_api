@@ -36,7 +36,7 @@ export default {
     methods: {
         connexion(compte) {
             this.$store.dispatch('login', compte)
-            // this.$router.push({name:'Home'})
+            this.$router.push({name:'Home'})
 
         }
     }

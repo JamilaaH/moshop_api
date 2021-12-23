@@ -29,13 +29,13 @@ export default {
   name: 'Home',
     data() {
     return {
-      url: 'https://api-moshop.molengeek.pro/'
+      url: 'https://api-moshop.molengeek.pro'
     }
   },
 
   computed: {
     shop() {
-      return this.$store.state.shop
+      return this.$store.state.mg
     },
     article() {
       return this.shop.products
