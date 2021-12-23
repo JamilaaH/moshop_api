@@ -35,6 +35,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "edit" */ '../views/EditProfil.vue'),
     meta: { requiresAuth: true }
   },
+  {
+    path:'/shop',
+    name:'Shop',
+    component: () => import(/* webpackChunkName: "shop" */ '../views/MyShop.vue'),
+    meta: { requiresAuth: true }
+  },
 
 ]
 

@@ -91,18 +91,37 @@ export default new Vuex.Store({
       }) 
       },
         //edit profil
-  editProfil( {dispatch, state}, value) {
-    axios.put('https://api-moshop.molengeek.pro/api/v1/user', value, {
-      headers: {
-      Authorization: "Bearer " + state.token
-      }
-  }).then((response) => {
-    console.log(response);
-    dispatch('getUser')
-      // commit('setUser', response.data);
-      // console.log(state.user)
-  })   
-}
+      editProfil( {dispatch, state}, value) {
+        axios.put('https://api-moshop.molengeek.pro/api/v1/user', value, {
+          headers: {
+          Authorization: "Bearer " + state.token
+          }
+      }).then((response) => {
+        console.log(response);
+        dispatch('getUser')
+          // commit('setUser', response.data);
+          // console.log(state.user)
+      })   
+    },
+    //add product 
+    addProduct({state, dispatch}, value) {
+      let Product = new FormData()
+      Product.append('name', value.name)
+      Product.append('description', value.description)
+      Product.append('price', value.price)
+      Product.append('cover_path', value.img)
+      axios.post('https://api-moshop.molengeek.pro/api/v1/product', Product, {
+        headers: {
+        Authorization: "Bearer " + state.token
+        }
+    })
+      .then((response) => {
+        console.log(response)
+        dispatch('getUser')
+      })
+      .catch(error => console.log(error))
+  },   
+
 
   },
   modules: {
